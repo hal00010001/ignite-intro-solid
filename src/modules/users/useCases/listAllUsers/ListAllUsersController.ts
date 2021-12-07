@@ -14,7 +14,7 @@ class ListAllUsersController {
     const { user_id } = request.headers as IRequestHeaders;
     try {
       const all = this.listAllUsersUseCase.execute({ user_id });
-      return response.json(all);
+      return response.status(200).json(all);
     } catch (error) {
       return response.status(400).json({ error: error.message });
     }
